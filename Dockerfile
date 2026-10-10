@@ -37,8 +37,7 @@ FROM gcr.io/distroless/static:nonroot
 WORKDIR /app
 COPY --from=go-builder /app/bin/mailtub /app/mailtub
 
-# Persistent data directory
-VOLUME ["/data"]
+# Persistent data: attach a Railway Volume mounted at /data (VOLUME is not supported on Railway)
 
 # HTTP
 EXPOSE 8080
